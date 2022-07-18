@@ -1,0 +1,31 @@
+scalar MongoFilter
+scalar MongoProjection
+scalar MongoSort
+
+type Query {
+  mongo(
+    dataApikey: String!
+    dataSource: String!
+    collection: String!
+    database: String!
+    filter: MongoFilter
+    projection: MongoProjection
+    sort: MongoSort
+    limit: Int
+    skip: Int
+    
+  ): [Document]
+    @rest(
+      endpoint: "https://data.mongodb-api.com/app/data-udkku/endpoint/data/v1/action/find"
+      method: POST
+      headers: [{ name: "api-key", value: "$dataApikey" }]
+      resultroot: "documents[]"
+    )
+}
+
+type Document {
+  _id: String
+  name: String
+  ratings: Int
+}
+
