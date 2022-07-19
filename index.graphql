@@ -27,5 +27,13 @@ type Document {
   _id: String
   name: String
   ratings: Int
+  showstopper: [String]
+  price: Int
+  lat: String
+  long: String
+  phone: String
+  onlyveg: Boolean
+  photos: [String]
+  menu: String
 }
 
